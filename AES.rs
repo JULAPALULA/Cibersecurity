@@ -1,6 +1,6 @@
 /*
 *   main.rs - Encriptación y desencriptación AES-256 (CBC, OFB, CFB, ECB)
-*   @author nombre_apellidos
+*   @author Jorge J. Álvarez García
 *   @date 05/04/2026
 *   @version 1.0
 *
