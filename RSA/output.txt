@@ -1,0 +1,136 @@
+[!!! DISCLAIMER]
+Este texto esta directamente sacado de un cargo run | tee output.txt no se ha modificado ni alterado ninguno de los resultados de abajo resultados directos del programa.
+^^^^^^^^^^^^
+
+Texto : ESTAMOS EN CLASE DE CRIPTOGRAFIA
+  Bytes : 32 bytes
+
+**************************************************************
+  EJERCICIO 1 -- CIFRADO RSA-2048
+**************************************************************
+
+  [1/4] Generando par de claves RSA-2048...
+  Exponente público : 65537
+  Longitud de clave : 2048 bits
+
+  Clave pública (PEM):
+    -----BEGIN PUBLIC KEY-----
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnncorqnWPmoV/+JJvoO2
+    nvCLhT3PLWnr2xSzTmEjIHypxbXSfYyr23Bse4JhEmqjZfvxQnfRJ7vuVslW3n8x
+    BU/JkrJekNioUQq8gQb3g1vu/ClV9vAEYo2ZexDdPGnpSW5wCLtKZrblyUuA4a0r
+    hKz6u5ebUKRgu+xVDT2//e5sIVzeqs1XUMsUP1SaVjnEaWEeuX81KaGlZ/hfjXUG
+    uuJgJbznCHqeGk91tH0CGdBGyPHoZ9jLasKFlE68Y7GHooVj2EH4e+Ta3FHh7eLs
+    fAwIX9Z7eF3UbVzfMLOvBva1gp8XFRDLA0gHfkBnN9nD5Piy4x4ccblsK6pAx2gI
+    owIDAQAB
+    -----END PUBLIC KEY-----
+
+  [2/4] Cifrando con clave PÚBLICA + OAEP ...
+
+  * OAEP introduce aleatoriedad: el CT cambia en cada ejecución
+
+  Ejecución 1:
+
+  CT RSA:
+  hex : 94c13fc5b56571ee2670462e6fba350ed6222dd324ebdaa2012ba5e6430f02bcfe6ce984f85ca5f317b7d73327138029e7f40010e39f6c444dc77913d578fdfb72bc3811fbff485ade93093232efd23f87de0ab82c1c8a1a7c2f30b8d50240735938ffd02262dc8234f53616381ca0600be1487ff1f5df6f2f60eb95bfdb69c67530eff83175fa9946a4192c3c30de965104a56805d54c9ac3c7dd3f623aeb4a934d30e4b1232ba079747555619c0d89ec38b46d2ee1f1ef107e42e94238a112934114978487b4bac918d68e4253aa586051c0d4844c7b75033d3e6cea8c6587eba70ac1001b0b754586b94ae641b8cfda37fc883695f6e56d6a000bb525746b
+  len : 256 bytes
+
+  Ejecución 2:
+
+  CT RSA:
+  hex : 5672e5776b28790de134d899067bc0fc57a6eef9ebda8388eebcfd9a560a08da24fc187de8ded176d905d94b8cdf6f37607b1a51d9e37a8df71023555547d00e5a4ecc95cee107215689819e67bb311619037be282b9382a0316d2829def6bf72bfd98de92dac3a9e6d0dab454721b80ba4eca119d8c8a0a9a8d63d3636a6a373fbc3be8a8b9be80778f124d0f5a631ac6dbee70ae38782d6b81c4757d81e2180b260db5a989927324a2b9b77cf9a1886909c45abcf6a6f8a18109ab4c6331117e5b78dd61d9edb42cb281295449fb494b600dce97a63d9da52afdd982878be00f4090b696a4b2eb97557ee935f3c5a567d6aa7f3d4506bd13c5be2d6debd76b
+  len : 256 bytes
+
+  [Verificación descifrado RSA (ejecución 1)]
+  Texto descifrado : ESTAMOS EN CLASE DE CRIPTOGRAFIA
+  ¿Coincide?       : SÍ
+
+**************************************************************
+  EJERCICIO 1 -- FIRMA RSA-PSS
+**************************************************************
+
+  [3/4] Firmando con clave PRIVADA + PSS ...
+
+  * La firma RSA se realiza con la CLAVE PRIVADA
+  * PSS añade sal aleatoria: la firma cambia en cada ejecución
+  * Para RSA-2048 la firma ocupa siempre 256 bytes
+
+  Ejecución 1:
+
+  FIRMA RSA-PSS:
+  hex : 85fc34ec4a0818be31ea6423ba07d65a878ada769f8f6c065a790139da76f2de64757c33d9b8cde64f10d8afef5ba94954d86edb911b65ca7471f3b82317185c42ba3084bbd3461122272776cef2c6602227e4ad72272990f4aa6acf3d8b6228872478d76f4bcef18045bcf442252a1c764b147b091af06470c03691035d7a6c43973c18f501cd8c23aaf767f9b9538973939d497cc37056d0c342cd6a5b65c0748512cac4a855108f4d7391c16b06cf54a18b666ccd0fa38f9120a3bcfde2c02e75a554ae88afd1b04ccf2affabb86e1dde5a9111f397c4934ece526139894d71b2a4e845b14853ad21c2243a563390c691ea8fb959907363469573f68b9a88
+  len : 256 bytes
+
+  Ejecución 2:
+
+  FIRMA RSA-PSS:
+  hex : 6998b60c8b0f4e1128eb7d9bf078474e869852ad49eb26a6906c2ad7a6d29272d98219aa489b827f2b214d3ed4622c9af97c175061153daca27f165146fac868e366b8771083adafe75da7eccab1a99cdd4ecfc10a0ceaa0723df7508ec870bfb050321659fbce079183ed1a1f9647b20910186534af9d31f5f196459ec1ba0fb3edd0ba8ab9aef31b834656319b1987f3fcec13ea078aaeeb0c0471bf28e818141d9a9d0520f9009e92d18bf08b5f48cae15a0fa7e7371fa6eb81f8717d1fbe262a6b094bb3b07021311de493457554c70a97151b8799a6cd281a80c8a5c40f91b1edb33840eb99bbd04e0378275674bfeeb9cd43236b4df3d6ad784c2d4564
+  len : 256 bytes
+
+  [4/4] Verificando firma con clave PÚBLICA ...
+  ¿Firma válida?   : SÍ
+  ¿Con qué clave se firmó?    Con la CLAVE PRIVADA RSA-2048.
+  ¿Con qué clave se verifica? Con la CLAVE PÚBLICA RSA-2048.
+
+**************************************************************
+  EJERCICIO 2 -- FIRMA ECDSA (SECP256K1 / P-256)
+**************************************************************
+
+  [1/4] Generando par de claves ECDSA 256 bits ...
+  Curva            : SECP256K1 / P-256
+  Clave privada    : 256 bits
+  Clave pública    : 64 bytes (punto no comprimido en la curva)
+
+  [2/4] Firmando con ECDSA ...
+
+  * ECDSA genera un nonce k aleatorio: la firma cambia en cada ejecución
+  * La firma se codifica en DER (ASN.1): ~70-72 bytes (vs 256 en RSA)
+
+  Ejecución 1:
+
+  FIRMA ECDSA:
+  hex : 3046022100f9e854ee92cb00d992b35aed256fc2579ae9eddd8f5a2dfd54deaf5903b3979c022100d1e8f822b51c41fab95eb8a3e66d0e79997afa7eb0c6aecad4cf80cc6a79ff10
+  len : 72 bytes
+
+  Ejecución 2:
+
+  FIRMA ECDSA:
+  hex : 3046022100f9e854ee92cb00d992b35aed256fc2579ae9eddd8f5a2dfd54deaf5903b3979c022100d1e8f822b51c41fab95eb8a3e66d0e79997afa7eb0c6aecad4cf80cc6a79ff10
+  len : 72 bytes
+
+  [3/4] Verificando firma ECDSA con clave pública ...
+  ¿Firma válida?   : SÍ
+
+  [4/4] Prueba con mensaje alterado (debe fallar) ...
+  Mensaje alterado : ESTAMOS EN CLASE DE MATEMATICAS 
+  ¿Firma válida?   : NO (correcto: la firma no corresponde al mensaje alterado)
+
+****************************************************************************************************************************
+  CONCLUSIÓN Y COMPARATIVA
+****************************************************************************************************************************
+
+  CIFRADO RSA:
+    Clave para cifrar    : PÚBLICA  (cualquiera puede cifrar)
+    Clave para descifrar : PRIVADA  (solo el dueño descifra)
+    Padding              : OAEP + SHA-256  (probabilístico)
+    Tamaño criptograma   : 256 bytes  (= longitud clave en bytes)
+
+  FIRMA RSA-PSS:
+    Clave para firmar    : PRIVADA  (solo el dueño firma)
+    Clave para verificar : PÚBLICA  (cualquiera verifica)
+    Padding              : PSS + SHA-256  (sal aleatoria)
+    Tamaño firma         : 256 bytes
+
+  FIRMA ECDSA:
+    Clave para firmar    : PRIVADA  (256 bits)
+    Clave para verificar : PÚBLICA
+    Longitud clave priv. : 256 bits  (vs 2048 en RSA)
+    Tamaño firma (DER)   : ~71 bytes  (vs 256 en RSA-PSS)
+
+  DIFERENCIAS RSA vs ECDSA:
+    RSA   -> firma de 256 bytes, clave de 2048 bits
+    ECDSA -> firma de ~71 bytes, clave de 256 bits  <- más compacto
+    Ambas son NO deterministas (PSS sal + nonce ECDSA aleatorio)
+    Ambas verifican correctamente y rechazan mensajes alterados.
+    ECDSA es preferido en entornos con recursos limitados (IoT, TLS, blockchain).
+
+****************************************************************************************************************************

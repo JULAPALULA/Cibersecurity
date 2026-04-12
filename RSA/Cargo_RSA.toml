@@ -1,0 +1,18 @@
+[package]
+name = "RSA"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+aes       = "0.8"
+cbc       = { version = "0.1", features = ["alloc"] }
+ofb       = "0.6"
+cfb-mode  = "0.8"
+ecb       = "0.1"
+cipher    = { version = "0.4", features = ["block-padding"] }
+base64    = "0.21"
+rsa  = { version = "0.9", features = ["sha2", "pem"] }
+p256 = { version = "0.13", features = ["ecdsa"] }
+sha2 = "0.10"
+rand = "0.8"
+hex  = "0.4"
